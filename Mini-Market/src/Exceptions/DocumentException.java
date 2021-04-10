@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Exceptions;
 
-/**
- *
- * @author amilc
- */
-public class DocumentException {
+public class DocumentException extends Exception{
     
+    public  DocumentException() {
+        super("Lo siento, por el momento este tipo de identificacion no tiene permitido el acceso");
+    }
 }
