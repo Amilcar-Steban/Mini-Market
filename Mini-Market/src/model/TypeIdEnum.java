@@ -2,5 +2,5 @@
 package model;
 
 public enum TypeIdEnum {
-    TI, CC, PP, CE;
+    TI,CC,PP,CE;
 }

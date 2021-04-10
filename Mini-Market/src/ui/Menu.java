@@ -29,14 +29,15 @@ public class Menu {
         
         num = sc.nextByte();
         
+        
 
         return num;
     }
     public String numberDocument(){
         
         String numberDocument;
-        System.out.println("\nIngrese el numero de identificación");
-        numberDocument = cs.nextLine();
+        System.out.println("\nIngrese el numero de identificación: ");
+        numberDocument = cs.next();
         
         return numberDocument;
         
