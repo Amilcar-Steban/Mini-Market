@@ -3,7 +3,19 @@ package Exceptions;
 
 public class DocumentException extends Exception{
     
-    public  DocumentException() {
-        super("Lo siento, por el momento este tipo de identificacion no tiene permitido el acceso");
+    private String message;
+
+    public DocumentException() {
+        this.message = "Documento invalido";
     }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    
+    
 }
