@@ -26,6 +26,7 @@ public class Menu {
                            +"\n2.Cedula de ciudadania"
                            +"\n3.Pasaporte"
                            +"\n4.Cedula extrangera");
+        
         num = sc.nextByte();
         
 
@@ -50,26 +51,28 @@ public class Menu {
                            +"\n1.Registrarse"
                            +"\n2.Mostrar cantidad de personas que han intentado ingresar"
                            +"\n3.Salir");
+        
         option = sc.nextByte();
         
             if (option == 1) {
-                
                 cont += 1;
             }
         
             try {
                 if (option == 1) {
                     
-                    tipeDocument();
-                    numberDocument();
-                    boolean person = m.addPerson(tipeDocument(), numberDocument());
+                    byte tipe = tipeDocument();
+                    String number = numberDocument();
+                    boolean person = m.addPerson(tipe, number);
+                    
                     if (person == false) {
-                        throw new Exception("Ingrese un numero valido, tiene que contener mas de dos digitos");
+                        throw new Exception("Ingrese un numero valido, tiene que tener mas de dos digitos");
                     }
                     break;
+                    
                 }else if(option == 2){
                             System.out.println(": "+cont);
-                        break;
+                        
                 }else if(option ==3) {
                     break;
                 }
