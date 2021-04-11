@@ -17,27 +17,33 @@ public class Menu {
         persons = new ArrayList<>();
     }
     
-    public byte tipeDocument(){
+    public byte tipeDocument() throws DocumentException{
         
         byte num = 0;
-        System.out.println("\n\tREGISTRO"
-                           +"\nIngrese el tipo de Identificación:"
+        System.out.print("\n\tREGISTRO"
+                           +"\n\nIngrese el tipo de Identificación:"
                            +"\n1.Tarjeta de identidad"
                            +"\n2.Cedula de ciudadania"
                            +"\n3.Pasaporte"
-                           +"\n4.Cedula extrangera");
+                           +"\n4.Cedula extrangera"
+                           +"\n\nOpcion: ");
+        
+        
         
         num = sc.nextByte();
-        
+        m.idType(num);
         
 
         return num;
     }
-    public String numberDocument(){
+    public String numberDocument() throws Exception{
         
         String numberDocument;
         System.out.println("\nIngrese el numero de identificación: ");
         numberDocument = cs.next();
+        
+        m.id(numberDocument);
+
         
         return numberDocument;
         
@@ -48,10 +54,11 @@ public class Menu {
         int cont = 0;
         while(option != 3){
             
-        System.out.println("\n\tMENU"
-                           +"\n1.Registrarse"
+        System.out.print("\n\tMENU"
+                           +"\n\n1.Registrarse"
                            +"\n2.Mostrar cantidad de personas que han intentado ingresar"
-                           +"\n3.Salir");
+                           +"\n3.Salir"
+                           +"\n\nOpcion: ");
         
         option = sc.nextByte();
         
@@ -66,13 +73,15 @@ public class Menu {
                     String number = numberDocument();
                     boolean person = m.addPerson(tipe, number);
                     
+                    
+                    
                     if (person == false) {
-                        throw new Exception("Ingrese un numero valido, tiene que tener mas de dos digitos");
+                        throw new Exception("Ingrese un numero valido");
                     }
                     break;
                     
                 }else if(option == 2){
-                            System.out.println(": "+cont);
+                            System.out.println("\nNumero de personas que intentaron ingresar: "+cont);
                         
                 }else if(option ==3) {
                     break;
@@ -81,10 +90,12 @@ public class Menu {
                 
             } catch (DocumentException e) {
                 System.out.println(e.getMessage());
-            } catch (NumberoddException e) {
-                System.out.println(e.getMessage());
-            }catch (Exception e) {
-                System.out.println(e.getMessage());
+                
+            } catch (NumberoddException i) {
+                System.out.println(i.getMessage());
+                
+            }catch (Exception o) {
+                System.out.println(o.getMessage());
             }
         }
         

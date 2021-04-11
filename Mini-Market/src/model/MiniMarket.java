@@ -25,7 +25,7 @@ public class MiniMarket {
 
         TypeIdEnum tipeId = null;
         switch (type) {
-            case 0:
+            case 1:
                 throw new DocumentException();
 
             case 2:
@@ -44,28 +44,19 @@ public class MiniMarket {
     public void id(String num) throws Exception, NumberoddException {
 
         if (num.length() < 2) {
-            throw new Exception("El numero debe contener mas de dos cifras");
+            throw new Exception("El numero debe tener mas de dos cifras");
         }
+        
+        int cont = num.charAt(num.length()-2);
 
-        int cont = -1;
-        int penultNmuber = 0;
-
-        char[] numberD = num.toCharArray();
-        for (int i = 0; i < numberD.length; i++) {
-            cont = numberD[i - 1];
-        }
-
-        if (cont % 2 == 0) {
+        if (cont % 2 == 0 && LocalDate.now().getDayOfMonth() % 2 != 0) {
+            System.out.println("Si puede salir hoy");
+        }else{
             throw new NumberoddException();
-
-        } else if (LocalDate.now().getDayOfMonth() % 2 == 0) {
-            throw new NumberoddException();
-
         }
-
     }
 
-    public boolean addPerson(byte tipeId, String numId) throws DocumentException, Exception, NumberoddException {
+    public boolean addPerson(byte tipeId, String numId) throws DocumentException, Exception{
 
         TypeIdEnum id = idType(tipeId);
 

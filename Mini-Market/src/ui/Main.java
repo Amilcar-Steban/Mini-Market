@@ -7,5 +7,4 @@ public class Main {
         Menu go = new Menu();
         go.menuOptions();
     }
-    
 }
